@@ -47,6 +47,20 @@ $(document).ready(function init() {
     $('#clear_board').click(function(){        
         clearCanvas();
     });
+    
+    $("input:radio").change(function(){
+        if (this.id == "mode_train"){
+            $("#identify_char").hide();
+            $("#char_text").show();
+            $("#add_char").show();
+        }else if (this.id == "mode_predict"){
+            $("#identify_char").show();
+            $("#char_text").hide();
+            $("#add_char").hide();
+        }
+    })
+    
+    $("input:radio:checked").trigger("change");
 });
 
 function addClick(x, y, dragging)
